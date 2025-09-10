@@ -1,4 +1,3 @@
-// src/tracing.ts
 import { WebTracerProvider } from '@opentelemetry/sdk-trace-web';
 import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
@@ -16,7 +15,7 @@ const resource = defaultResource().merge(
 );
 
 const exporter = new OTLPTraceExporter({
-  url: 'http://localhost:4318/v1/traces', // поменяй при необходимости
+  url: 'http://localhost:4318/v1/traces',
 });
 
 const provider = new WebTracerProvider({
@@ -40,5 +39,3 @@ registerInstrumentations({
     }),
   ],
 });
-
-console.log('✅ OpenTelemetry (browser) initialized');
